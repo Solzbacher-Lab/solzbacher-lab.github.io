@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solzbacher Group sample</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 3rem auto; padding: 0 16px; line-height: 1.5; color: #222; background: #fff; }
+  #id { font-size: 2.5rem; font-weight: 700; letter-spacing: 0.05em; margin: 0.5rem 0; }
+  a.button { display: inline-block; padding: 0.8rem 1.4rem; border-radius: 8px; background: #be0000; color: #fff; text-decoration: none; font-weight: 600; }
+  @media (prefers-color-scheme: dark) { body { color: #eee; background: #111; } }
+</style>
+</head>
+<body>
+<!-- Every label address (/s/<ID>) lands here: GitHub Pages serves this page for paths that are not files.
+     Public page: it shows only the ID from the address, never lab data. -->
+<div id="sample" hidden>
+  <p>Lab sample</p>
+  <p id="id"></p>
+  <p><a class="button" id="open">Open in FabLog</a></p>
+  <p>Nothing happens? FabLog is not installed on this phone. Ask the lab for the app.</p>
+</div>
+<div id="other" hidden>
+  <h1>Page not found</h1>
+  <p><a href="/">Solzbacher Group sample labels</a></p>
+</div>
+<script>
+  var m = location.pathname.match(/^\/s\/([A-Za-z0-9._-]{2,40})\/?$/);
+  if (m) {
+    var id = m[1].toUpperCase();
+    document.getElementById("id").textContent = id;
+    document.getElementById("open").href = "fablog://s/" + encodeURIComponent(id);
+    document.title = id + " - Solzbacher Group sample";
+    document.getElementById("sample").hidden = false;
+  } else {
+    document.getElementById("other").hidden = false;
+  }
+</script>
+</body>
+</html>
