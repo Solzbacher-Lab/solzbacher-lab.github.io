@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "edu.utah.solzbacher.fablog",
+      "sha256_cert_fingerprints": ["4D:BC:67:23:C8:DF:4A:76:56:2B:78:8A:71:DA:C6:3F:AE:9A:4D:72:E1:4E:03:17:87:D4:C5:14:DD:1F:99:76"]
+    }
+  }
+]
