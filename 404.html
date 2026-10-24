@@ -17,8 +17,8 @@
 <div id="sample" hidden>
   <p>Lab sample</p>
   <p id="id"></p>
-  <p><a class="button" id="open">Open in FabLog</a></p>
-  <p>Nothing happens? FabLog is not installed on this phone. Ask the lab for the app.</p>
+  <p><a class="button" id="open">Open in SampleLog</a></p>
+  <p>Nothing happens? SampleLog is not installed on this phone. Ask the lab for the app.</p>
 </div>
 <div id="other" hidden>
   <h1>Page not found</h1>
@@ -29,7 +29,7 @@
   if (m) {
     var id = m[1].toUpperCase();
     document.getElementById("id").textContent = id;
-    document.getElementById("open").href = "fablog://s/" + encodeURIComponent(id);
+    document.getElementById("open").href = "samplelog://s/" + encodeURIComponent(id);
     document.title = id + " - Solzbacher Group sample";
     document.getElementById("sample").hidden = false;
   } else {
