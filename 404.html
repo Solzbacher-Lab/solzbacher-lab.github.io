@@ -10,6 +10,10 @@
   a.button { display: inline-block; padding: 0.8rem 1.4rem; border-radius: 8px; background: #be0000; color: #fff; text-decoration: none; font-weight: 600; }
   @media (prefers-color-scheme: dark) { body { color: #eee; background: #111; } }
 </style>
+<script>
+  // A page of the SampleLog web app (/app/...) opened before its service worker exists: start the app.
+  if (/^\/app(\/|$)/.test(location.pathname)) location.replace("/app/");
+</script>
 </head>
 <body>
 <!-- Every label address (/s/<ID>) lands here: GitHub Pages serves this page for paths that are not files.
@@ -17,8 +21,14 @@
 <div id="sample" hidden>
   <p>Lab sample</p>
   <p id="id"></p>
-  <p><a class="button" id="open">Open in SampleLog</a></p>
-  <p>Nothing happens? SampleLog is not installed on this phone. Ask the lab for the app.</p>
+  <div id="android">
+    <p><a class="button" id="open">Open in SampleLog</a></p>
+    <p>Nothing happens? SampleLog is not installed on this phone. Ask the lab for the app.</p>
+  </div>
+  <div id="iphone" hidden>
+    <p>On an iPhone, open SampleLog from your Home Screen and tap <b>Scan or enter sample ID</b>, then scan this label again (or type the ID above). A label scanned with the Camera app cannot open it.</p>
+    <p>No SampleLog on this iPhone? Open <a href="/app/">solzbacher-lab.github.io/app</a> in Safari, then Share → Add to Home Screen.</p>
+  </div>
 </div>
 <div id="other" hidden>
   <h1>Page not found</h1>
@@ -31,8 +41,12 @@
     document.getElementById("id").textContent = id;
     document.getElementById("open").href = "samplelog://s/" + encodeURIComponent(id);
     document.title = id + " - Solzbacher Group sample";
+    // iPhones and iPads (iPadOS presents itself as a Mac with a touch screen) have no SampleLog app to open.
+    var apple = /iPhone|iPad|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+    document.getElementById("android").hidden = apple;
+    document.getElementById("iphone").hidden = !apple;
     document.getElementById("sample").hidden = false;
-  } else {
+  } else if (!/^\/app(\/|$)/.test(location.pathname)) {
     document.getElementById("other").hidden = false;
   }
 </script>
