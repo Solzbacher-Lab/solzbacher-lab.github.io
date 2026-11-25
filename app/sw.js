@@ -7,9 +7,9 @@
  *
  * scripts/build-web.mts fills in BUILD and FILES; as written here (development) nothing is cached.
  */
-const BUILD = "dc17bf1faddb";
+const BUILD = "578fbea18c2c";
 const FILES = [
- "/app/_expo/static/js/web/entry-d0fc37a816fbc6f653a420c859557e45.js",
+ "/app/_expo/static/js/web/entry-fe92c0942c690b602cca8e33547976fa.js",
  "/app/apple-touch-icon.png",
  "/app/assets/__node_modules/expo-router/assets/arrow_down.017bc6ba3fc25503e5eb5e53826d48a8.png",
  "/app/assets/__node_modules/expo-router/assets/error.d1ea1496f9057eb392d5bbf3732a61b7.png",
